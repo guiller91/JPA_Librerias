@@ -3,10 +3,12 @@ package modelo.entidad;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -23,6 +25,8 @@ public class Autor {
 	@Temporal(TemporalType.DATE)
 	private Date fechaNacimiento;
 	
+	// relación uno a mchos
+	@OneToMany(mappedBy="autor", cascade=CascadeType.ALL) 
 	private List<Libro> libros;
 
 	public Autor(int id_autor, String apellidos, Date fechaNacimiento, List<Libro> libros) {

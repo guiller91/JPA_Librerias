@@ -1,5 +1,7 @@
 package modelo.entidad;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,18 +17,18 @@ public class Editorial {
 	private int id_editorial;
 	private String nombre;
 	private String direcion;
-	private String libro;
+	private List<Libro> libros;
 	
 	public Editorial() {
 		super();
 	}
 
-	public Editorial(int id_editorial, String nombre, String direcion, String libro) {
+	public Editorial(int id_editorial, String nombre, String direcion, List<Libro> libros) {
 		super();
 		this.id_editorial = id_editorial;
 		this.nombre = nombre;
 		this.direcion = direcion;
-		this.libro = libro;
+		this.libros = libros;
 	}
 
 	public int getId_editorial() {
@@ -53,20 +55,19 @@ public class Editorial {
 		this.direcion = direcion;
 	}
 
-	public String getLibro() {
-		return libro;
+	public List<Libro> getLibros() {
+		return libros;
 	}
 
-	public void setLibro(String libro) {
-		this.libro = libro;
+	public void setLibros(List<Libro> libros) {
+		this.libros = libros;
 	}
 
 	@Override
 	public String toString() {
-		return "Editorial [id_editorial=" + id_editorial + ", nombre=" + nombre + ", direcion=" + direcion + ", libro="
-				+ libro + "]";
+		return "Editorial [id_editorial=" + id_editorial + ", nombre=" + nombre + ", direcion=" + direcion + ", libros="
+				+ libros + "]";
 	}
-	
-	
+
 	
 }

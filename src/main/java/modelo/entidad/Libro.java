@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -15,10 +17,15 @@ public class Libro {
 	private int id_libro;
 	private String titulo;
 	private double precio;
-	private String editorial;
-	private String autor;
+	private Editorial editorial;
 	
-	public Libro(int id_libro, String titulo, double precio, String editorial, String autor) {
+	@ManyToOne//(cascade=CascadeType.ALL) 
+	// En una relacion de "uno a muchos", la FK siempre esta en el lado de "Muchos"
+	// @JoinColumn siempre estará en este lado en este tipo de relaciones
+	@JoinColumn(name="fk_id_autor", referencedColumnName="id_autor")
+	private Autor autor;
+	
+	public Libro(int id_libro, String titulo, double precio, Editorial editorial, Autor autor) {
 		super();
 		this.id_libro = id_libro;
 		this.titulo = titulo;
@@ -56,19 +63,19 @@ public class Libro {
 		this.precio = precio;
 	}
 
-	public String getEditorial() {
+	public Editorial getEditorial() {
 		return editorial;
 	}
 
-	public void setEditorial(String editorial) {
+	public void setEditorial(Editorial editorial) {
 		this.editorial = editorial;
 	}
 
-	public String getAutor() {
+	public Autor getAutor() {
 		return autor;
 	}
 
-	public void setAutor(String autor) {
+	public void setAutor(Autor autor) {
 		this.autor = autor;
 	}
 
