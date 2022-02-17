@@ -2,10 +2,12 @@ package modelo.entidad;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -17,6 +19,10 @@ public class Editorial {
 	private int id_editorial;
 	private String nombre;
 	private String direcion;
+	
+	// relación de uno a muchos con Libro
+	// Esta anotacion en este extremo es para hacer la relacion bidireccional.
+	@OneToMany(mappedBy="editorial", cascade=CascadeType.ALL)
 	private List<Libro> libros;
 	
 	public Editorial() {

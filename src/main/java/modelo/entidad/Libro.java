@@ -17,11 +17,14 @@ public class Libro {
 	private int id_libro;
 	private String titulo;
 	private double precio;
-	private Editorial editorial;
 	
 	@ManyToOne//(cascade=CascadeType.ALL) 
 	// En una relacion de "uno a muchos", la FK siempre esta en el lado de "Muchos"
 	// @JoinColumn siempre estará en este lado en este tipo de relaciones
+	@JoinColumn(name="fk_id_editorial", referencedColumnName="id_editorial")
+	private Editorial editorial;
+	
+	@ManyToOne//(cascade=CascadeType.ALL) 
 	@JoinColumn(name="fk_id_autor", referencedColumnName="id_autor")
 	private Autor autor;
 	
