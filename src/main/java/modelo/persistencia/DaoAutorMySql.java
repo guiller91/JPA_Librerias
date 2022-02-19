@@ -10,7 +10,6 @@ import javax.persistence.Query;
 
 import modelo.entidad.Autor;
 
-
 public class DaoAutorMySql {
 	
 	private EntityManager entityManager ;

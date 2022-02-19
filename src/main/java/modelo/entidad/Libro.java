@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -32,8 +33,11 @@ public class Libro {
 	@JoinColumn(name="fk_id_autor", referencedColumnName="id_autor")
 	private Autor autor;
 	
-	@ManyToMany(mappedBy="libros", cascade=CascadeType.PERSIST) 
-	private List<Libreria> librerias;
+	@ManyToMany(cascade = CascadeType.PERSIST)
+    @JoinTable(name = "libros_en_librerias",
+            joinColumns = @JoinColumn(name = "fk_id_libro", referencedColumnName = "id_libro"), 
+            inverseJoinColumns = @JoinColumn(name = "fk_id_libreria", referencedColumnName = "id_libreria"))
+    private List<Libreria> librerias;
 
 
 	public Libro(int id_libro, String titulo, double precio, Editorial editorial, Autor autor,

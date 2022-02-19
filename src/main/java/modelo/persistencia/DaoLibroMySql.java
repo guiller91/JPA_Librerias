@@ -23,6 +23,7 @@ public class DaoLibroMySql {
 			e.printStackTrace();
 			return false;
 		}
+		
 	}
 	
 	private boolean cerrarConexion(){
