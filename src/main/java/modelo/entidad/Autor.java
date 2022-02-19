@@ -25,7 +25,8 @@ public class Autor {
 	@Temporal(TemporalType.DATE)
 	private Date fechaNacimiento;
 	
-	// relación uno a mchos
+	// relación de uno a muchos con Libro
+	// Esta anotacion en este extremo es para hacer la relacion bidireccional.
 	@OneToMany(mappedBy="autor", cascade=CascadeType.ALL) 
 	private List<Libro> libros;
 
