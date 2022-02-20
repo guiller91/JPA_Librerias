@@ -33,13 +33,12 @@ public class Libreria {
 		super();
 	}
 
-	public Libreria(int id_libreria, String nombre, String nombre_dueño, String direcion, List<Libro> libros) {
+	public Libreria(String nombre, String nombre_dueño, String direcion) {
 		super();
-		this.id_libreria = id_libreria;
 		this.nombre = nombre;
 		this.nombre_dueño = nombre_dueño;
 		this.direcion = direcion;
-		this.libros = libros;
+
 	}
 
 	public int getId_libreria() {

@@ -20,6 +20,7 @@ public class Autor {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_autor;
+	private String nombre;
 	private String apellidos;
 	
 	@Temporal(TemporalType.DATE)
@@ -30,12 +31,11 @@ public class Autor {
 	@OneToMany(mappedBy="autor", cascade=CascadeType.ALL) 
 	private List<Libro> libros;
 
-	public Autor(int id_autor, String apellidos, Date fechaNacimiento, List<Libro> libros) {
+	public Autor(String nombre ,String apellidos, Date fechaNacimiento) {
 		super();
-		this.id_autor = id_autor;
+		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.fechaNacimiento = fechaNacimiento;
-		this.libros = libros;
 	}
 
 	public Autor() {
@@ -75,10 +75,20 @@ public class Autor {
 		this.libros = libros;
 	}
 
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
 	@Override
 	public String toString() {
-		return "Autor [id_autor=" + id_autor + ", apellidos=" + apellidos + ", fechaNacimiento=" + fechaNacimiento
-				+ ", libros=" + libros + "]";
+		return "Autor [id_autor=" + id_autor + ", nombre=" + nombre + ", apellidos=" + apellidos + ", fechaNacimiento="
+				+ fechaNacimiento + ", libros=" + libros + "]";
 	}
+	
 
 }

@@ -3,13 +3,12 @@ package vista;
 import java.util.List;
 import java.util.Scanner;
 
-import modelo.entidad.Editorial;
-import modelo.entidad.Libreria;
 import modelo.entidad.Libro;
 import modelo.persistencia.DaoAutorMySql;
 import modelo.persistencia.DaoEditorialMySql;
 import modelo.persistencia.DaoLibreriaMySql;
 import modelo.persistencia.DaoLibroMySql;
+import modelo.persistencia.DaoTablas;
 
 public class MenuConsola {
 	
@@ -21,6 +20,8 @@ public class MenuConsola {
 
 	public static void main(String[] args) {
 		
+		DaoTablas daoTablas = new DaoTablas();
+		daoTablas.crearTablas();
 		menuPrincipal();
 	}
 
@@ -47,7 +48,7 @@ public class MenuConsola {
 					List<Libro> libros = daoLibro.listar();
 
 					for (Libro libro : libros) {
-						System.out.println(libro.toString());
+						System.out.println(libro);
 					}
 					
 					break;

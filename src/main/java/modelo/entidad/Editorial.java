@@ -22,19 +22,18 @@ public class Editorial {
 	
 	// relación de uno a muchos con Libro
 	// Esta anotacion en este extremo es para hacer la relacion bidireccional.
-	@OneToMany(mappedBy="editorial", cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="editorial", cascade=CascadeType.PERSIST)
 	private List<Libro> libros;
 	
 	public Editorial() {
 		super();
 	}
 
-	public Editorial(int id_editorial, String nombre, String direcion, List<Libro> libros) {
+	public Editorial(String nombre, String direcion) {
 		super();
-		this.id_editorial = id_editorial;
 		this.nombre = nombre;
 		this.direcion = direcion;
-		this.libros = libros;
+
 	}
 
 	public int getId_editorial() {

@@ -23,7 +23,7 @@ public class Libro {
 	private String titulo;
 	private double precio;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	// Relacion de "uno a muchos", la FK siempre esta en el lado de "Muchos"
 	// @JoinColumn siempre estará en este lado en este tipo de relaciones
 	@JoinColumn(name="fk_id_editorial", referencedColumnName="id_editorial")
@@ -40,15 +40,10 @@ public class Libro {
     private List<Libreria> librerias;
 
 
-	public Libro(int id_libro, String titulo, double precio, Editorial editorial, Autor autor,
-			List<Libreria> librerias) {
+	public Libro(String titulo, double precio) {
 		super();
-		this.id_libro = id_libro;
 		this.titulo = titulo;
 		this.precio = precio;
-		this.editorial = editorial;
-		this.autor = autor;
-		this.librerias = librerias;
 	}
 
 
