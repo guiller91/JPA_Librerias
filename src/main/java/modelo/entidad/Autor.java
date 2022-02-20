@@ -19,7 +19,7 @@ public class Autor {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_autor;
+	private int id;
 	private String nombre;
 	private String apellidos;
 	
@@ -44,11 +44,11 @@ public class Autor {
 	}
 
 	public int getId_autor() {
-		return id_autor;
+		return id;
 	}
 
 	public void setId_autor(int id_autor) {
-		this.id_autor = id_autor;
+		this.id = id_autor;
 	}
 
 	public String getApellidos() {
@@ -86,7 +86,7 @@ public class Autor {
 
 	@Override
 	public String toString() {
-		return "Autor [id_autor=" + id_autor + ", nombre=" + nombre + ", apellidos=" + apellidos + ", fechaNacimiento="
+		return "Autor [id_autor=" + id + ", nombre=" + nombre + ", apellidos=" + apellidos + ", fechaNacimiento="
 				+ fechaNacimiento + ", libros=" + libros + "]";
 	}
 	

@@ -107,7 +107,7 @@ public class DaoTablas {
 		
 		
 		daoAutor.insertar(brandon);
-		daoAutor.insertar(carlos);
+		/*daoAutor.insertar(carlos);
 		daoAutor.insertar(michael);
 		
 		daoLibro.insertar(elImperio);
@@ -123,7 +123,7 @@ public class DaoTablas {
 		daoLibreria.insertar(cementerio);
 		
 		daoEditorial.insertar(planeta);
-		daoEditorial.insertar(alfa);
+		daoEditorial.insertar(alfa);*/
 		
 	}
 	

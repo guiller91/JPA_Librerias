@@ -1,5 +1,6 @@
 package modelo.entidad;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -11,18 +12,18 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "editoriales")
+@Table(name = "editorial")
 public class Editorial {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_editorial;
+	private int id;
 	private String nombre;
 	private String direcion;
 	
 	// relación de uno a muchos con Libro
 	// Esta anotacion en este extremo es para hacer la relacion bidireccional.
-	@OneToMany(mappedBy="editorial", cascade=CascadeType.PERSIST)
+	@OneToMany(mappedBy="editorial", cascade=CascadeType.ALL)
 	private List<Libro> libros;
 	
 	public Editorial() {
@@ -31,17 +32,18 @@ public class Editorial {
 
 	public Editorial(String nombre, String direcion) {
 		super();
+		libros=new ArrayList<>();
 		this.nombre = nombre;
 		this.direcion = direcion;
 
 	}
 
 	public int getId_editorial() {
-		return id_editorial;
+		return id;
 	}
 
 	public void setId_editorial(int id_editorial) {
-		this.id_editorial = id_editorial;
+		this.id = id_editorial;
 	}
 
 	public String getNombre() {
@@ -70,7 +72,7 @@ public class Editorial {
 
 	@Override
 	public String toString() {
-		return "Editorial [id_editorial=" + id_editorial + ", nombre=" + nombre + ", direcion=" + direcion + ", libros="
+		return "Editorial [id_editorial=" + id + ", nombre=" + nombre + ", direcion=" + direcion + ", libros="
 				+ libros + "]";
 	}
 
